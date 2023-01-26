@@ -3,6 +3,8 @@ import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
 import AppError from '@shared/errors/AppError';
+import '@shared/typeorm';
+
 const app = express();
 
 //Habilita cors para requisicões, sem passar parametro ele é * aceita todas origens
