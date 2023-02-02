@@ -1,3 +1,4 @@
+import AppError from '@shared/errors/AppError';
 import { Request, Response } from 'express';
 import CreateProductService from '../typeorm/services/CreateProductService';
 import DeleteProductService from '../typeorm/services/DeleteProductService';
@@ -18,9 +19,7 @@ export default class ProductsController {
     const { id } = req.params;
 
     const showProduct = new ShowProductService();
-
     const product = await showProduct.execute({ id });
-
     return res.json(product);
   }
 

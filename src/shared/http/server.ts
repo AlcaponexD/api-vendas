@@ -1,9 +1,11 @@
 import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
+import 'express-async-errors';
 import cors from 'cors';
 import routes from './routes';
 import AppError from '@shared/errors/AppError';
 import '@shared/typeorm';
+import { errors } from 'celebrate';
 
 const app = express();
 
@@ -15,6 +17,9 @@ app.use(express.json());
 
 //Usa nossa arquivo de rotas tradicional externo
 app.use(routes);
+
+//Erro de validacoes
+app.use(errors());
 
 //Middleware para pegar errors sem ter que fica utilizando try catch nos código
 app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
