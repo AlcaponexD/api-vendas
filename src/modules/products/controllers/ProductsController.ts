@@ -1,10 +1,10 @@
 import AppError from '@shared/errors/AppError';
 import { Request, Response } from 'express';
-import CreateProductService from '../typeorm/services/CreateProductService';
-import DeleteProductService from '../typeorm/services/DeleteProductService';
-import ListProductService from '../typeorm/services/ListProductService';
-import ShowProductService from '../typeorm/services/ShowProductService';
-import UpdateProductService from '../typeorm/services/UpdateProductService';
+import CreateProductService from '../services/CreateProductService';
+import DeleteProductService from '../services/DeleteProductService';
+import ListProductService from '../services/ListProductService';
+import ShowProductService from '../services/ShowProductService';
+import UpdateProductService from '../services/UpdateProductService';
 
 export default class ProductsController {
   public async index(req: Request, res: Response): Promise<Response> {
