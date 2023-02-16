@@ -6,6 +6,7 @@ import routes from './routes';
 import AppError from '@shared/errors/AppError';
 import '@shared/typeorm';
 import { errors } from 'celebrate';
+import uploadConfig from '@config/upload';
 
 const app = express();
 
@@ -14,6 +15,9 @@ app.use(cors());
 
 //Habilita para trabalhar com json por padrão
 app.use(express.json());
+
+//Rota publica para usar nas imagens feitas uploads
+app.use('/files', express.static(uploadConfig.directory));
 
 //Usa nossa arquivo de rotas tradicional externo
 app.use(routes);
